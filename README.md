@@ -156,6 +156,27 @@ Drop is its own web server: no PHP-FPM or nginx needed for PHP. Put a reverse pr
 
    Point your domain's DNS at the server. Caddy gets a certificate automatically.
 
+   **Behind Cloudflare's proxy (orange cloud) with Flexible SSL**, Cloudflare handles HTTPS and talks to your server over plain HTTP. Use an `http://` site block, and let Caddy read the visitor's IP only from Cloudflare's edge so rate limits stay per visitor:
+
+   ```
+   {
+       servers {
+           # Paste the ranges from https://www.cloudflare.com/ips-v4 and /ips-v6
+           trusted_proxies static 173.245.48.0/20 103.21.244.0/22 ...
+           client_ip_headers CF-Connecting-IP
+       }
+   }
+
+   http://drop.example.com {
+       encode zstd gzip
+       reverse_proxy 127.0.0.1:8080 {
+           header_up X-Forwarded-For {client_ip}
+       }
+   }
+   ```
+
+   The global block goes at the very top of `/etc/caddy/Caddyfile`. Traffic between Cloudflare and the server is then unencrypted; set Cloudflare's SSL mode to **Full (strict)** with the plain HTTPS block above if you want it encrypted end to end.
+
 6. **Verify:** open `https://drop.example.com/ready` (should say `"ready": true`), then upload and download a real file in a browser.
 
 ### Updating
