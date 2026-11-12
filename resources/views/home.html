@@ -1,0 +1,15 @@
+<section class="upload-surface" aria-label="Upload files" data-uploader data-drop-zone data-max-bytes="{{max_bytes}}">
+    <div class="upload-content">
+        <div class="upload-controls">
+            <h1>Drop files here</h1>
+            <button type="button" class="solid" data-choose>Choose files</button>
+            <input class="sr-only" type="file" id="files" multiple tabindex="-1" aria-label="Files to upload">
+        </div>
+        <p class="error" data-upload-error role="alert" hidden></p>
+        <section class="section" data-upload-results hidden aria-label="Uploads">
+            <h2>Uploads</h2>
+            <div class="rows" data-upload-list></div>
+        </section>
+        <noscript><p class="note warn">Enable JavaScript to upload.</p></noscript>
+    </div>
+</section>

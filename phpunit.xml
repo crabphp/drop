@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php" cacheDirectory=".phpunit.cache" colors="true" failOnWarning="true" failOnRisky="true">
+    <testsuites><testsuite name="Drop"><directory suffix="Test.php">tests</directory></testsuite></testsuites>
+    <php>
+        <env name="DB_DATABASE" value=":memory:" force="true"/>
+        <env name="APP_URL" value="http://127.0.0.1:8080" force="true"/>
+        <env name="APP_DEBUG" value="false" force="true"/>
+        <env name="ADMIN_TOKEN" value="sample" force="true"/>
+        <env name="APP_KEY" value="test-key-not-a-secret" force="true"/>
+        <env name="MAX_FILE_BYTES" value="2000000000" force="true"/>
+        <env name="MAX_STORED_BYTES" value="10737418240" force="true"/>
+        <env name="CACHE_STORE" value="array" force="true"/>
+        <env name="LOG_PATH" value="php://memory" force="true"/>
+        <env name="R2_ACCOUNT_ID" value="" force="true"/>
+        <env name="R2_ACCESS_KEY_ID" value="" force="true"/>
+        <env name="R2_SECRET_ACCESS_KEY" value="" force="true"/>
+    </php>
+</phpunit>

@@ -1,0 +1,25 @@
+[Unit]
+Description=Drop file sharing (CrabPHP: HTTP + cleanup scheduler)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=drop
+Group=drop
+WorkingDirectory=/srv/drop
+# Foreground start runs the HTTP workers and the cleanup scheduler together.
+ExecStart=/usr/bin/php /srv/drop/cua start
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=30
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/srv/drop/storage
+
+[Install]
+WantedBy=multi-user.target

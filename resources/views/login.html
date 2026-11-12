@@ -1,0 +1,9 @@
+<h1>Backoffice</h1>
+<form method="post" action="/backoffice" class="login-form section">
+    <div class="field">
+        <label for="token">Access token</label>
+        <input id="token" name="token" type="password" required maxlength="1024" autocomplete="current-password" autofocus>
+    </div>
+    {{error}}
+    <button class="solid" type="submit">Sign in</button>
+</form>

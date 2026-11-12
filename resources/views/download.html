@@ -1,0 +1,10 @@
+<h1 class="filename">{{name}}</h1>
+<section class="file-details section" aria-label="File details">
+    <dl class="defs">
+        <dt>Size</dt><dd>{{size}}</dd>
+        <dt>Expires in</dt><dd><time datetime="{{expires_iso}}" data-expires="{{expires_iso}}">{{remaining}}</time></dd>
+    </dl>
+    <div class="actions">
+        <a class="button solid" href="/{{id}}/download" data-download>Download</a>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+[
+  {
+    "AllowedOrigins": ["https://drop.example.com", "http://127.0.0.1:8080"],
+    "AllowedMethods": ["PUT"],
+    "AllowedHeaders": ["content-type", "content-length", "if-none-match"],
+    "ExposeHeaders": ["ETag"],
+    "MaxAgeSeconds": 300
+  }
+]

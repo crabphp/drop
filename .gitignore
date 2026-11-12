@@ -1,0 +1,9 @@
+/vendor/
+/.env
+/.env.*
+!/.env.example
+/storage/*
+!/storage/.gitignore
+/.phpunit.cache/
+/tests/browser/artifacts/
+/node_modules/

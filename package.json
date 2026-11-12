@@ -1,0 +1,12 @@
+{
+  "name": "drop-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:browser": "node tests/browser/run.mjs",
+    "check:js": "node --check public/assets/drop.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0"
+  }
+}
